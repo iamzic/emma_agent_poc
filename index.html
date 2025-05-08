@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmaus Admissions Agent</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="EU_logo.png" alt="EU Logo" class="eu-logo">
+        </div>
+        <div id="access-code-section" class="access-code-section">
+            <h2>Enter Access Code</h2>
+            <input type="password" id="access-code" placeholder="Enter your access code">
+            <button id="submit-access-code">Submit</button>
+        </div>
+
+        <div id="api-key-section" class="api-key-section hidden">
+            <h2>Enter Your API Key</h2>
+            <input type="password" id="api-key" placeholder="Enter your API key">
+            <button id="submit-api-key">Submit</button>
+        </div>
+
+        <div id="chat-section" class="chat-section hidden">
+            <div class="chat-container">
+                <div id="chat-messages" class="chat-messages"></div>
+                <div class="input-container">
+                    <textarea id="user-input" placeholder="Type your message..." rows="3"></textarea>
+                    <button id="send-button">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
