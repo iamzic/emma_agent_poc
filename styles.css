@@ -122,6 +122,53 @@ body {
     word-wrap: break-word;
 }
 
+.message p {
+    margin-bottom: 0.5rem;
+}
+
+.message p:last-child {
+    margin-bottom: 0;
+}
+
+.message ul, .message ol {
+    margin: 0.5rem 0;
+    padding-left: 1.5rem;
+}
+
+.message li {
+    margin-bottom: 0.25rem;
+}
+
+.message code {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+.message pre {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 0.5rem 0;
+}
+
+.message pre code {
+    background-color: transparent;
+    padding: 0;
+}
+
+.message a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.message a:hover {
+    opacity: 0.8;
+}
+
 .user-message {
     align-self: flex-end;
     background-color: var(--primary-color);

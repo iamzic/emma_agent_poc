@@ -4,6 +4,15 @@ const config = {
     agentId: 'ag:98b10d19:20250508:enrollment-agent:9ec27e4c', // Replace with your Mistral Agent ID
 };
 
+// Configure marked options
+marked.setOptions({
+    breaks: true, // Enable line breaks
+    gfm: true, // Enable GitHub Flavored Markdown
+    headerIds: false, // Disable header IDs for security
+    mangle: false, // Disable mangling for security
+    sanitize: false // Allow HTML (we'll sanitize it ourselves)
+});
+
 // DOM Elements
 const accessCodeSection = document.getElementById('access-code-section');
 const apiKeySection = document.getElementById('api-key-section');
@@ -108,7 +117,21 @@ async function handleSendMessage() {
 function addMessage(content, type) {
     const messageDiv = document.createElement('div');
     messageDiv.className = `message ${type}-message`;
-    messageDiv.textContent = content;
+    
+    // For user messages, just use the text
+    if (type === 'user') {
+        messageDiv.textContent = content;
+    } else {
+        // For agent messages, parse markdown
+        messageDiv.innerHTML = marked.parse(content);
+        
+        // Make all links open in new tab
+        messageDiv.querySelectorAll('a').forEach(link => {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener noreferrer');
+        });
+    }
+    
     chatMessages.appendChild(messageDiv);
     
     // Scroll to bottom after a short delay to ensure the message is rendered
