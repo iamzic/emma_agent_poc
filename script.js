@@ -110,6 +110,11 @@ function addMessage(content, type) {
     messageDiv.className = `message ${type}-message`;
     messageDiv.textContent = content;
     chatMessages.appendChild(messageDiv);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
+    
+    // Scroll to bottom after a short delay to ensure the message is rendered
+    setTimeout(() => {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }, 100);
+    
     return messageDiv;
 } 
